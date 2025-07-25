@@ -19,7 +19,7 @@ import com.sts.dto.response.TicketResponse;
 import com.sts.service.TicketService;
 
 @RestController
-@RequestMapping("/tickets")
+@RequestMapping("/api/tickets")
 public class TicketController {
 
 	@Autowired

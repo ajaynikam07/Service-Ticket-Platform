@@ -19,13 +19,13 @@ import com.sts.dto.response.UserResponce;
 import com.sts.service.IUserService;
 
 @RestController
-@RequestMapping("/api")
-public class UserOperationController {
+@RequestMapping("/api/users")
+public class UserOperationController 
+{
 
-	/*
-	 * <<-------------IuserService Object to access All Service
-	 * Method------------------->>
-	 */
+	
+	
+	/*<<-------------IuserService Object to access All Service  Method------------------->>*/
 	@Autowired
 	private IUserService userService;
 
@@ -68,12 +68,14 @@ public class UserOperationController {
 	@PutMapping("/users/{id}")
 	public ResponseEntity<UserResponce> updateUser(@PathVariable("id") Long id, @RequestBody UserRequest request) 
 	{
+		System.out.println("UserOperationController.updateUser()");
 		return new ResponseEntity<>(userService.updateUser(id, request), HttpStatus.OK);
 	}
 
-	@DeleteMapping("/users/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable("id") Long id) 
 	{
+		    System.out.println("UserOperationController.deleteUser()");
 			userService.deleteUser(id);
 			return ResponseEntity.ok("User deleted successfully with ID: " + id);	 
 	}
